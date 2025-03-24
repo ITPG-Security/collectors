@@ -1,7 +1,7 @@
 version: '0'
 services:
   collector-crowdstrike:
-    image: openbas/collector-sentinelone:latest
+    image: openbas/collector-sentinelone:1.14.0
     environment:
       - OPENBAS_URL=http://localhost
       - OPENBAS_TOKEN=ChangeMe
