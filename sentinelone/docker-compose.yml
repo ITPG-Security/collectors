@@ -1,0 +1,15 @@
+version: '0'
+services:
+  collector-crowdstrike:
+    image: openbas/collector-sentinelone:latest
+    environment:
+      - OPENBAS_URL=http://localhost
+      - OPENBAS_TOKEN=ChangeMe
+      - COLLECTOR_ID=ChangeMe
+      - COLLECTOR_NAME=CrowdStrike
+      - COLLECTOR_LOG_LEVEL=error
+      - COLLECTOR_PLATFORM=EDR
+      - SENTINELONE_BASE_URL=
+      - SENTINELONE_CLIENT_ID=ChangeMe
+      - SENTINELONE_CLIENT_SECRET=ChangeMe
+    restart: always
