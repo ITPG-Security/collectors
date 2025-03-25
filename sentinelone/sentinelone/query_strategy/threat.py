@@ -27,6 +27,7 @@ class Item(BaseModel):
         result = []
         result.extend([self.filename,self.parent_details.filename])
         result.extend(self.quarantine_result)
+        return result
 
     def get_hostname(self) -> str:
         return self.device.hostname
