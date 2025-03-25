@@ -26,7 +26,7 @@ class Item(BaseModel):
     def get_process_image_names(self) -> list[str]:
         result = []
         result.extend([self.filename,self.parent_details.filename])
-        result.extend(self.quarantineResult)
+        result.extend(self.quarantine_result)
 
     def get_hostname(self) -> str:
         return self.device.hostname
