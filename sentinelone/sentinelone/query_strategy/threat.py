@@ -21,19 +21,12 @@ class Item(BaseModel):
     parent_details: ProcessDetails
     device: DeviceDetails
     mitigation_status: str
-    filepath: str | None
+    quarantine_result: list[str]
 
     def get_process_image_names(self) -> list[str]:
-        if self.filepath:
-            return [
-                self.filename,
-                self.parent_details.filename,
-                self.filepath,
-            ]
-        return [
-            self.filename,
-            self.parent_details.filename,
-        ]
+        result = []
+        result.extend([self.filename,self.parent_details.filename])
+        result.extend(self.quarantineResult)
 
     def get_hostname(self) -> str:
         return self.device.hostname

@@ -171,11 +171,6 @@ if __name__ == "__main__":
             "sentinelone_api_base_url": {
                 "env": "SENTINELONE_API_BASE_URL",
                 "file_path": ["sentinelone", "api_base_url"],
-            },
-            "sentinelone_use_file_path": {
-                "env": "SENTINELONE_USE_FILE_PATH",
-                "file_path": ["sentinelone", "use_file_path"],
-                "default": "True",
             }
         },
     )
@@ -201,8 +196,7 @@ if __name__ == "__main__":
     sentinelone_api = SentinelOneApiHandler(
         helper=helper,
         api_token=config.get_conf("sentinelone_api_token"),
-        base_url=config.get_conf("sentinelone_api_base_url"),
-        use_file_path=bool(config.get_conf("sentinelone_use_file_path")),
+        base_url=config.get_conf("sentinelone_api_base_url")
     )
     strategy = Threat(api_handler=sentinelone_api)
     collector = OpenBASSentinelOne(
