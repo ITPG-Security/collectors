@@ -185,7 +185,7 @@ if __name__ == "__main__":
         SignatureType(
             SignatureTypes.SIG_TYPE_PARENT_PROCESS_NAME,
             match_type=MatchTypes.MATCH_TYPE_FUZZY,
-            match_score=50,
+            match_score=95,
         ),
     ]
 

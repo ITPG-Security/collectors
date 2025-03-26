@@ -70,5 +70,5 @@ class SentinelOneApiHandler:
             if len(row) == 3:
                 # obas-implant is the prefix of the value OpenBAS searches for. This is to eliminate comparasons.
                 if re.search('obas-implant', row[1]) and row[2] == "success":
-                    resultList.append(row[1])
+                    resultList.append(row[1].split('\\')[-1])
         return resultList
