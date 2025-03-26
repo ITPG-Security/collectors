@@ -20,7 +20,7 @@ class SentinelOneApiHandler:
             results.append({
                 "id":threat["id"],
                 "filename": threat["threatInfo"]["threatName"],
-                "parent_details": {"filename": threat["threatInfo"]["originatorProcess"]},
+                "parent_details": {"filename": None if threat["threatInfo"]["originatorProcess"] is None else threat["threatInfo"]["originatorProcess"]},
                 "device": {"hostname": threat["agentRealtimeInfo"]["agentComputerName"]},
                 "mitigation_status": threat["threatInfo"]["mitigationStatus"],
                 "quarantine_result": quarantineResults
