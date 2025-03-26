@@ -17,10 +17,11 @@ class SentinelOneApiHandler:
         results = []
         for threat in threats:
             quarantineResults = self._get_quarantine_report(threat)
+            parent_details = "" if threat["threatInfo"]["originatorProcess"] is None else threat["threatInfo"]["originatorProcess"]
             results.append({
                 "id":threat["id"],
                 "filename": threat["threatInfo"]["threatName"],
-                "parent_details": {"filename": None if threat["threatInfo"]["originatorProcess"] is None else threat["threatInfo"]["originatorProcess"]},
+                "parent_details": {"filename": parent_details},
                 "device": {"hostname": threat["agentRealtimeInfo"]["agentComputerName"]},
                 "mitigation_status": threat["threatInfo"]["mitigationStatus"],
                 "quarantine_result": quarantineResults
